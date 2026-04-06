@@ -2,9 +2,6 @@
 
 > A hands-on hardware and cybersecurity project built to understand wireless communication, RF interference, and the real-world attack surface of modern wireless protocols — and how systems can be hardened against them.
 
-![Jammer Hardware](./images/jammer.jpg)
-
-
 ---
 
 ## ⚠️ Legal Disclaimer
@@ -13,19 +10,6 @@ This device was built and tested **exclusively in isolated, controlled lab envir
 
 ---
 
-## 🔧 Hardware Architecture
-
-| Component | Role |
-|---|---|
-| **ESP32** | Main microcontroller — native dual-mode Wi-Fi + Bluetooth |
-| **NRF24L01+ × 3** | Parallel RF modules for multi-channel simultaneous coverage |
-| **OLED Display** | Real-time feedback: active mode, channel status, scan results |
-| **Physical Buttons** | On-device mode switching without serial dependency |
-| **Custom Enclosure** | Compact, portable case designed for lab use |
-
-Three NRF24L01+ modules run in parallel to cover multiple frequency channels simultaneously, enabling broad-spectrum signal analysis and generation without sequential scanning delays.
-
----
 
 ## ⚙️ Capabilities & Features
 
@@ -53,6 +37,19 @@ Key areas explored:
 - **Spoofing surface** — What information is exposed during passive beacon/advertisement scanning, and how is it exploited?
 
 ---
+## 🔧 Hardware Architecture
+
+| Component | Role |
+|---|---|
+| **ESP32** | Main microcontroller — native dual-mode Wi-Fi + Bluetooth |
+| **NRF24L01+ × 3** | Parallel RF modules for multi-channel simultaneous coverage |
+| **OLED Display** | Real-time feedback: active mode, channel status, scan results |
+| **Physical Buttons** | On-device mode switching without serial dependency |
+| **Custom Enclosure** | Compact, portable case designed for lab use |
+
+Three NRF24L01+ modules run in parallel to cover multiple frequency channels simultaneously, enabling broad-spectrum signal analysis and generation without sequential scanning delays.
+
+---
 
 ## 🛠️ Tech Stack & Concepts
 
@@ -64,28 +61,8 @@ Concepts       RF Interference · Spread Spectrum · FHSS · Signal Spoofing
 Security       Wireless Protocol Analysis · Deauth Attacks · Beacon Flooding · Defensive Countermeasures
 ```
 
----
 
-## 📁 Repository Structure
 
-```
-├── firmware/
-│   ├── main/               # Core ESP32 firmware
-│   ├── modes/              # Per-mode logic (scan, jam, spoof)
-│   └── display/            # OLED UI rendering
-├── hardware/
-│   ├── schematic/          # Circuit diagrams
-│   └── enclosure/          # 3D model / case design files
-├── docs/
-│   ├── architecture.md     # Deep-dive into hardware decisions
-│   ├── research-notes.md   # Findings, observations, anomalies
-│   └── references.md       # Papers, datasheets, prior work
-├── images/
-│   └── jammer.jpg          # Hardware photo
-└── README.md
-```
-
----
 
 ## 🔬 Setup & Usage
 
@@ -96,14 +73,7 @@ Security       Wireless Protocol Analysis · Deauth Attacks · Beacon Flooding �
 - Arduino IDE or PlatformIO
 - ESP32 board package installed
 - Libraries: `Adafruit SSD1306`, `RF24`, `WiFi.h`
-
-### Flash the Firmware
-
-```bash
-git clone https://github.com/YOUR_USERNAME/wifi-bt-jammer.git
-cd wifi-bt-jammer/firmware
-# Open in Arduino IDE or PlatformIO and flash to ESP32
-```
+<img width="480" height="723" alt="1_g" src="https://github.com/user-attachments/assets/3b59fafc-c3af-43e5-854f-ce039c1b3a3c" />
 
 ### Hardware Wiring
 
@@ -121,7 +91,8 @@ cd wifi-bt-jammer/firmware
 
 ## 📸 Hardware
 
-![Wi-Fi Bluetooth Jammer](./images/jammer.jpg)
+<img width="480" height="723" alt="3_g" src="https://github.com/user-attachments/assets/4f6394e8-0bf5-4dcd-b61e-93911154b23c" />
+
 
 ---
 
