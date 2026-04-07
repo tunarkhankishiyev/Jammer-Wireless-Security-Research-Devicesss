@@ -43,8 +43,8 @@ Key areas explored:
 |---|---|
 | **ESP32** | Main microcontroller — native dual-mode Wi-Fi + Bluetooth |
 | **NRF24L01+ × 3** | Parallel RF modules for multi-channel simultaneous coverage |
-| **OLED Display (SSD1306 128×64)** | Real-time feedback: active mode, channel status, scan results |
-| **Physical Buttons (×4)** | On-device mode switching without serial dependency |
+| **OLED Display (SH1106 128×64)** | Real-time feedback: active mode, channel status, scan results |
+| **Physical Buttons (×5)** | On-device mode switching without serial dependency |
 | **Custom Enclosure** | Compact, portable case designed for lab use |
 
 Three NRF24L01+ modules run in parallel to cover multiple frequency channels simultaneously, enabling broad-spectrum signal analysis and generation without sequential scanning delays.
@@ -63,7 +63,7 @@ Three NRF24L01+ modules run in parallel to cover multiple frequency channels sim
 
 ---
 
-### OLED Display (SSD1306) — I2C
+### OLED Display (SH1106) — I2C
 
 | Signal | ESP32 GPIO |
 |---|---|
@@ -91,6 +91,16 @@ Three modules are wired independently on CE/CSN while sharing the SPI bus.
 ### Button Pin Assignments by Module
 
 Buttons serve different roles depending on the active firmware module. All buttons are configured as `INPUT_PULLUP` — active LOW on press.
+
+#### Main Menu Navigation
+
+These three buttons are always active on the main menu screen to navigate the module list.
+
+| Button | GPIO | Function |
+|---|---|---|
+| BUTTON_UP | GPIO 26 | Scroll menu up |
+| BUTTON_SELECT | GPIO 32 | Confirm / enter selected module |
+| BUTTON_DOWN | GPIO 33 | Scroll menu down |
 
 #### Wi-Fi Jammer (`jammer.cpp`)
 
@@ -168,9 +178,10 @@ Buttons serve different roles depending on the active firmware module. All butto
 | 22 | I2C SCL — OLED |
 | 23 | SPI MOSI |
 | 25 | Button: Back / Prev / PA Level |
-| 26 | Button: Toggle / Control / Up |
+| 26 | Button: Menu Up / Toggle / Control |
 | 27 | Button: Select / Next / Data Rate |
-| 33 | Button: Down / Channels / Adv Type |
+| 32 | Button: Menu Select (main navigation) |
+| 33 | Button: Menu Down / Channel / Adv Type |
 
 ---
 
@@ -223,7 +234,7 @@ The scanner saves its rolling signal history graph to EEPROM every **5 seconds**
 ## 🛠️ Tech Stack & Concepts
 
 ```
-Hardware       ESP32 · NRF24L01+ (×3) · OLED SSD1306 128×64 · Custom PCB layout
+Hardware       ESP32 · NRF24L01+ (×3) · OLED SH1106 128×64 · Custom PCB layout
 Protocols      IEEE 802.11 (Wi-Fi) · Bluetooth Classic · BLE · Zigbee · 433/915 MHz RC
 Firmware       Embedded C/C++ · Arduino framework · SPI bus management · EEPROM persistence
 Concepts       RF Interference · Spread Spectrum · FHSS · Signal Spoofing · Carrier Detection
@@ -252,7 +263,7 @@ Security       Wireless Protocol Analysis · Deauth Attacks · Beacon Flooding �
 | MISO | GPIO 19 |
 | MOSI | GPIO 23 |
 
-#### OLED Display (SSD1306) — I2C
+#### OLED Display (SH1106) — I2C
 
 | Signal | ESP32 GPIO |
 |---|---|
@@ -274,9 +285,10 @@ Security       Wireless Protocol Analysis · Deauth Attacks · Beacon Flooding �
 | GPIO | Function |
 |---|---|
 | GPIO 25 | Back / Prev / PA Level |
-| GPIO 26 | Toggle / Up / Control |
+| GPIO 26 | Menu Up / Toggle / Control |
 | GPIO 27 | Select / Next / Data Rate |
-| GPIO 33 | Down / Channel / Adv Type |
+| GPIO 32 | Menu Select (main navigation) |
+| GPIO 33 | Menu Down / Channel / Adv Type |
 
 ---
 
