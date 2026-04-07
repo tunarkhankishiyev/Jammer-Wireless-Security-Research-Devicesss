@@ -44,7 +44,6 @@ Key areas explored:
 | **ESP32** | Main microcontroller — native dual-mode Wi-Fi + Bluetooth |
 | **NRF24L01+ × 3** | Parallel RF modules for multi-channel simultaneous coverage |
 | **OLED Display (SSD1306 128×64)** | Real-time feedback: active mode, channel status, scan results |
-| **NeoPixel LED** | Visual status indicator — color-coded per active mode/state |
 | **Physical Buttons (×4)** | On-device mode switching without serial dependency |
 | **Custom Enclosure** | Compact, portable case designed for lab use |
 
@@ -61,6 +60,17 @@ Three NRF24L01+ modules run in parallel to cover multiple frequency channels sim
 | SCK | GPIO 18 |
 | MISO | GPIO 19 |
 | MOSI | GPIO 23 |
+
+---
+
+### OLED Display (SSD1306) — I2C
+
+| Signal | ESP32 GPIO |
+|---|---|
+| VCC | 3.3V |
+| GND | GND |
+| SCL | GPIO 22 |
+| SDA | GPIO 21 |
 
 ---
 
@@ -154,6 +164,8 @@ Buttons serve different roles depending on the active firmware module. All butto
 | 17 | CSN — Radio 1 |
 | 18 | SPI SCK |
 | 19 | SPI MISO |
+| 21 | I2C SDA — OLED |
+| 22 | I2C SCL — OLED |
 | 23 | SPI MOSI |
 | 25 | Button: Back / Prev / PA Level |
 | 26 | Button: Toggle / Control / Up |
@@ -176,18 +188,6 @@ Buttons serve different roles depending on the active firmware module. All butto
 | **Apple Spoofer** | `spoofer.cpp` | Spoofs 17 Apple/Beats device types via randomized BLE advertisements |
 | **Sour Apple** | `sourapple.cpp` | Generates rapid randomized Apple proximity pairing pop-up packets |
 | **Settings** | `setting.cpp` | OLED-based settings menu: NeoPixel enable/disable, OLED brightness (EEPROM-persisted) |
-| **NeoPixel** | `neopixel.cpp` | LED status indicator — color reflects active mode (red=jamming, purple=scanning, white=startup) |
-
----
-
-### NeoPixel Status Colors
-
-| Color | Meaning |
-|---|---|
-| 🔴 Red | Jamming active |
-| 🟣 Purple | Channel scanning in progress |
-| ⚪ White | Startup / BLE scan indicator |
-| ⚫ Off | Idle / deactivated |
 
 ---
 
@@ -223,7 +223,7 @@ The scanner saves its rolling signal history graph to EEPROM every **5 seconds**
 ## 🛠️ Tech Stack & Concepts
 
 ```
-Hardware       ESP32 · NRF24L01+ (×3) · OLED SSD1306 128×64 · NeoPixel LED · Custom PCB layout
+Hardware       ESP32 · NRF24L01+ (×3) · OLED SSD1306 128×64 · Custom PCB layout
 Protocols      IEEE 802.11 (Wi-Fi) · Bluetooth Classic · BLE · Zigbee · 433/915 MHz RC
 Firmware       Embedded C/C++ · Arduino framework · SPI bus management · EEPROM persistence
 Concepts       RF Interference · Spread Spectrum · FHSS · Signal Spoofing · Carrier Detection
@@ -251,6 +251,15 @@ Security       Wireless Protocol Analysis · Deauth Attacks · Beacon Flooding �
 | SCK | GPIO 18 |
 | MISO | GPIO 19 |
 | MOSI | GPIO 23 |
+
+#### OLED Display (SSD1306) — I2C
+
+| Signal | ESP32 GPIO |
+|---|---|
+| VCC | 3.3V |
+| GND | GND |
+| SCL | GPIO 22 |
+| SDA | GPIO 21 |
 
 #### NRF24L01+ Modules
 
