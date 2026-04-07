@@ -121,6 +121,9 @@ Security       Wireless Protocol Analysis · Deauth Attacks · Beacon Flooding �
 
 ### Hardware Wiring
 
+<img width="3000" height="1918" alt="circuit_image (1)" src="https://github.com/user-attachments/assets/74affa66-2f92-4a5c-809d-9cbe12f49719" />
+
+
 #### SPI Bus
 
 | Signal | ESP32 GPIO |
