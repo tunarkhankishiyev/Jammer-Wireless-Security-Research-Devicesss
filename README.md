@@ -3,6 +3,11 @@
 > A hands-on hardware and cybersecurity project built to understand wireless communication, RF interference, and the real-world attack surface of modern wireless protocols — and how systems can be hardened against them.
 
 ---
+![main](https://github.com/user-attachments/assets/848c2b7a-4816-43b2-8486-786414c8be0a)
+![jammer](https://github.com/user-attachments/assets/f21522dd-961b-4114-bae5-45faa5a17918)
+
+
+---
 
 ## ⚠️ Legal Disclaimer
 
