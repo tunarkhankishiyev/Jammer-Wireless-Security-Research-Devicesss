@@ -163,8 +163,8 @@ Security       Wireless Protocol Analysis · Deauth Attacks · Beacon Flooding �
 
 ## 📸 Hardware
 
-<img width="480" height="723" alt="1_g" src="https://github.com/user-attachments/assets/3b59fafc-c3af-43e5-854f-ce039c1b3a3c" />
-<img width="480" height="723" alt="3_g" src="https://github.com/user-attachments/assets/4f6394e8-0bf5-4dcd-b61e-93911154b23c" />
+<img width="400" height="723" alt="1_g" src="https://github.com/user-attachments/assets/3b59fafc-c3af-43e5-854f-ce039c1b3a3c" />
+<img width="400" height="723" alt="3_g" src="https://github.com/user-attachments/assets/4f6394e8-0bf5-4dcd-b61e-93911154b23c" />
 
 ---
 
